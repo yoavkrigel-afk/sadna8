@@ -124,6 +124,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;op
 
 /* ---------- sections ---------- */
 section{position:relative}
+.reviews,.visit,footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
 .sec{padding:clamp(80px,12vw,150px) 0}
 .eyebrow{font-weight:800;font-size:15px;letter-spacing:.12em;color:var(--ember);margin:0 0 8px}
 h2{font-family:var(--display);font-weight:700;font-size:clamp(64px,10vw,124px);line-height:.82;margin:0 0 24px;letter-spacing:.01em}
@@ -525,7 +526,7 @@ footer{background:var(--ink);color:var(--paper);padding:70px 0 120px}
   addEventListener('scroll', onScroll, { passive: true });
   addEventListener('resize', () => { vh = innerHeight; onScroll(); });
   reduce.addEventListener?.('change', () => { if (reduce.matches) layers.forEach(l => l.el.style.transform = ''); onScroll(); });
-  apply();
+  if (scrollY > 0) onScroll(); else requestAnimationFrame(() => setTimeout(onScroll, 0));
 })();
 </script>
 </body>
