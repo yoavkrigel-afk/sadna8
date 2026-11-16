@@ -25,6 +25,11 @@
 <link rel="preload" as="font" type="font/woff2" href="fonts/karantina-hebrew.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/karantina-latin.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/assistant-hebrew.woff2" crossorigin>
+<script>
+(function(){var d=document.documentElement,done=function(){d.classList.add('fonts')};
+try{Promise.race([Promise.all([document.fonts.load('700 1em Karantina','סדנא 8'),document.fonts.load('600 1em Assistant','בורגר')]),new Promise(function(r){setTimeout(r,700)})]).then(done,done)}catch(e){done()}})();
+</script>
+<noscript><style>.hero-copy .wrap{visibility:visible!important}</style></noscript>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Restaurant","name":"סדנא 8","alternateName":"Sadna 8","url":"https://yoavkrigel-afk.github.io/sadna8/","image":"https://yoavkrigel-afk.github.io/sadna8/assets/og.jpg","telephone":"+972-53-966-8602","servesCuisine":["Burgers","המבורגרים"],"priceRange":"₪50–100","address":{"@type":"PostalAddress","streetAddress":"סדנאות האומנים","addressLocality":"עין כרמל","addressCountry":"IL"},"hasMap":"https://www.google.com/maps/search/?api=1&query=MXF3%2BX9%20Ein%20Carmel","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"283"},"acceptsReservations":false,"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday"],"opens":"17:00","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"12:00","closes":"23:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"12:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"12:00","closes":"22:00"}]}
 </script>
@@ -88,7 +93,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;op
   linear-gradient(180deg,rgba(20,40,29,.55) 0%,rgba(20,40,29,.05) 30%,rgba(20,40,29,.15) 55%,rgba(20,40,29,.92) 100%),
   radial-gradient(120% 70% at 50% 110%,rgba(20,40,29,.7),transparent 60%)}
 .hero-copy{z-index:2;display:flex;align-items:flex-end}
-.hero-copy .wrap{padding-bottom:clamp(110px,16vh,170px)}
+.hero-copy .wrap{padding-bottom:clamp(110px,16vh,170px);visibility:hidden}
+.fonts .hero-copy .wrap{visibility:visible;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 .kicker{display:inline-flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.08em;font-size:15px;color:var(--mustard);text-transform:uppercase}
 .kicker::before{content:"";width:34px;height:2px;background:currentColor}
 .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(108px,22vw,300px);line-height:.78;margin:.12em 0 .06em;letter-spacing:.01em;text-shadow:0 10px 50px rgba(0,0,0,.35)}
