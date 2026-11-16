@@ -107,7 +107,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;op
 @media (max-width:720px){
   .rating{width:104px;height:104px;top:90px}
   .rating .num{font-size:44px}
-  .hero-copy .wrap{padding-bottom:120px}
+  .hero-copy .wrap{padding-bottom:78px}
+  .hero h1{font-size:96px}
+  .hero p.lede{margin-bottom:20px}
 }
 
 /* ---------- ticker ---------- */
@@ -482,7 +484,9 @@ footer{background:var(--ink);color:var(--paper);padding:70px 0 120px}
   const hero = document.querySelector('.hero');
   const tryPlay = () => { if (!reduce.matches) { const p = video.play(); if (p) p.catch(() => {}); } };
   if (reduce.matches) { video.removeAttribute('autoplay'); video.pause(); }
-  new IntersectionObserver(([e]) => { e.isIntersecting ? tryPlay() : video.pause(); }).observe(hero);
+  let heroVisible = true;
+  new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; heroVisible ? tryPlay() : video.pause(); }).observe(hero);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && heroVisible) tryPlay(); });
   reduce.addEventListener?.('change', () => reduce.matches ? video.pause() : tryPlay());
 
   // Highlight today's hours (Israel time)
