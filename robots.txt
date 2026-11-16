@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yoavkrigel-afk.github.io/sadna8/sitemap.xml
