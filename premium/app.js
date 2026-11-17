@@ -34,7 +34,7 @@
       this.frames = []; this.cur = 0; this.target = 0; this.tf = null; this.loading = false;
       this.dir = portraitMQ.matches ? 'm' : 'd';
     }
-    url(i) { return `assets/seq/${this.name}/${this.dir}/${String(i + 1).padStart(3, '0')}.webp`; }
+    url(i) { return `../assets/seq/${this.name}/${this.dir}/${String(i + 1).padStart(3, '0')}.webp`; }
     load() {
       if (this.loading) return; this.loading = true;
       const n = this.cfg.count, order = [], seen = new Set();
@@ -219,7 +219,7 @@
 
   /* ---------- reduced motion: static story, no sequences ---------- */
   if (reduce) {
-    const still = $('#build .still'); if (still) still.src = 'assets/seq/build/' + (portraitMQ.matches ? 'm' : 'd') + '/090.webp';
+    const still = $('#build .still'); if (still) still.src = '../assets/seq/build/' + (portraitMQ.matches ? 'm' : 'd') + '/090.webp';
     $$('.scene canvas').forEach(c => c.remove());
     addEventListener('scroll', () => { top.classList.toggle('solid', scrollY > 40); bar.classList.toggle('show', scrollY > innerHeight); }, { passive: true });
     return;
